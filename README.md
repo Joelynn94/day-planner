@@ -3,11 +3,11 @@ Create a simple calendar application that allows the user to save events for eac
 The app should display standard business hours (9 a.m. to 5 p.m.). Each time slot should represent one hour and contain the following:
 
 
-The time
+1. The time
 
-A field to hold user input
+2. A field to hold user input
 
-A save button
+4. A save button
 
 Clicking on the save button will store the time and user input in localStorage.
 Near the top of the calendar, the application should display the current day. Additionally, each hour should be color coded to reflect whether the time slot is in the past, the present, or the future. This will change depending on the time of day.
@@ -23,23 +23,23 @@ Poor time management can result in missed meetings and deadlines or create the a
 
 # Minimum Requirements
 
-Functional, deployed application.
+1. Functional, deployed application.
 
-GitHub repository with a unique name and a README describing project.
+2. GitHub repository with a unique name and a README describing project.
 
-The application displays timeblocks for standard business hours (9 a.m. to 5 p.m.).
+3. The application displays timeblocks for standard business hours (9 a.m. to 5 p.m.).
 
-Each timeblock contains an input field and save button.
+4. Each timeblock contains an input field and save button.
 
-Clicking a timeblock's "Save" button stores the input text in local storage, allowing the text to persist when the application is refreshed.
+5. Clicking a timeblock's "Save" button stores the input text in local storage, allowing the text to persist when the application is refreshed.
 
-The current day is displayed at the top of the calendar.
+6. The current day is displayed at the top of the calendar.
 
-Each timeblock is color coded to indicate whether it is in a past, present, or future hour.
+7. Each timeblock is color coded to indicate whether it is in a past, present, or future hour.
 
 
-## GIVEN that an employee adds events to a specific hour in a calendar
+GIVEN that an employee adds events to a specific hour in a calendar
 
-## WHEN the employee clicks the save button
+WHEN the employee clicks the save button
 
-## THEN events are saved in the timeblock for that hour
+THEN events are saved in the timeblock for that hour
