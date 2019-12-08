@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.border {
+    border-top: 5px solid black !important;
+}
+
+.input-group-text {
+    width: 4rem;
+}
+
+.btn {
+    width: 4rem;
+}
+
+.input-group {
+    height: 4rem;
+    margin-bottom: 0 !important;
+}
+
+.input-group > .form-control {
+    height: 4rem;
+}
+
+
