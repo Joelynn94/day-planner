@@ -8,14 +8,31 @@ todaysDate = now.format("dddd, MMMM Do");
 // append todaysDate to the page
 $("#todaysDate").append(todaysDate);
 
-let currentHour = now.format('h:mma');
+let currentHour = now.hour();
 console.log(currentHour)
 
-let beginningTime = moment('9:00am', 'h:mma');
-let endTime = moment('5:00pm', 'h:mma');
-console.log(beginningTime.isBefore(endTime)); // true 
 
+    // grab the inputs
+    const inputs = $('.form-control')
 
+    // loop through all of the inputs
+    for (let i = 0; i < inputs.length; i++) {
+
+        // Get all elements that contain a data-id attribute
+        let dataId = ($(inputs[i]).siblings(".input-group-text").attr("data-hour"))
+        console.log(dataId)
+
+        if(dataId < currentHour){
+            $( ".input-group-text" ).addClass( ".past" );
+        } else if (dataId === currentHour){
+            $( ".input-group-text" ).addClass( ".present" );
+        } else {
+            $( ".input-group-text" ).addClass( ".future" );
+        }
+    }
+
+      
+      
 
 // Clicking a timeblock's "Save" button stores the input text in local storage, allowing the text to persist when the application is refreshed.
 
