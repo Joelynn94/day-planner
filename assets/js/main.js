@@ -1,6 +1,7 @@
 let todaysDate = document.querySelector("#todaysDate");
 const saveBtn = document.querySelectorAll(".saveBtn");
 
+// sets the moment 
 let now = moment();
 
 // set todaysDate and format using moment JS
@@ -18,29 +19,28 @@ console.log(currentHour)
     // loop through all of the inputs
     for (let i = 0; i < inputs.length; i++) {
 
-        // Get all elements that contain a data-id attribute
+        // Get all elements that contain a data-hour attribute
         let dataId = ($(inputs[i]).siblings(".input-group-text").attr("data-hour"))
         console.log(dataId)
 
         if(dataId < currentHour){
-            $( ".input-group-text" ).addClass( ".past" );
+            // if the input value is less than the current hour
+            $(".input-group-text").addClass("past");
         } else if (dataId === currentHour){
-            $( ".input-group-text" ).addClass( ".present" );
-        } else {
-            $( ".input-group-text" ).addClass( ".future" );
+            // if the input value is equal to the current hour
+            $(".input-group-text").addClass("present");
+        } else if (dataId > currentHour){
+            // if the input value is greater than the current hour
+            $(".input-group-text").addClass("future");
         }
     }
 
-      
-      
 
 // Clicking a timeblock's "Save" button stores the input text in local storage, allowing the text to persist when the application is refreshed.
 
 function saveText () {
-    // get value of the input box
-    inputText = $(".form-control").val().trim();
 
-    if (inputText !== ""){
+    if (inputs !== ""){
         // key : value to save input text
         const hour = {
             hour9: $("#hour9").val(),
@@ -52,25 +52,31 @@ function saveText () {
             hour15: $("#hour15").val(),
             hour16: $("#hour16").val(),
             hour17: $("#hour17").val()
-
         };
 
+        console.log(hour)
+
+        // sets the key "hour" and stringifies the object - hour
         localStorage.setItem("hour", JSON.stringify(hour));
-
-        let hourEvent = JSON.parse(localStorage.getItem("hour"));
-
-        $("#hour9").text(hourEvent.hour9);
-        $("#hour10").text(hourEvent.hour10);
-        $("#hour11").text(hourEvent.hour11);
-        $("#hour12").text(hourEvent.hour12);
-        $("#hour13").text(hourEvent.hour13);
-        $("#hour14").text(hourEvent.hour14);
-        $("#hour15").text(hourEvent.hour15);
-        $("#hour16").text(hourEvent.hour16);
-        $("#hour17").text(hourEvent.hour17);
     }
 }
 
+// gets the "hour" from localstorage and parse (into object)
+let hourEvent = JSON.parse(localStorage.getItem("hour"));
 
+console.log(hourEvent)
+
+// sets the value of each input to local storage value (to keep the text on the page on reload)
+$("#hour9").val(hourEvent.hour9);
+$("#hour10").val(hourEvent.hour10);
+$("#hour11").val(hourEvent.hour11);
+$("#hour12").val(hourEvent.hour12);
+$("#hour13").val(hourEvent.hour13);
+$("#hour14").val(hourEvent.hour14);
+$("#hour15").val(hourEvent.hour15);
+$("#hour16").val(hourEvent.hour16);
+$("#hour17").val(hourEvent.hour17);
+
+// click event on the save button
 $(".saveBtn").on("click", saveText);
 
