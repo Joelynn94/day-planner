@@ -20,8 +20,8 @@ console.log(currentHour)
     for (let i = 0; i < inputs.length; i++) {
 
         // Get all elements that contain a data-hour attribute
-        let dataId = ($(inputs[i]).siblings(".input-group-text").attr("data-hour"))
-        console.log(dataId)
+        let dataId = ($(inputs[i]).siblings(".input-group-text").attr("data-hour"));
+        console.log(dataId);
 
         if(dataId < currentHour){
             // if the input value is less than the current hour
@@ -62,7 +62,7 @@ function saveText () {
 }
 
 // gets the "hour" from localstorage and parse (into object)
-let hourEvent = JSON.parse(localStorage.getItem("hour"));
+let hourEvent = JSON.parse(localStorage.getItem("hour")) || {};
 
 console.log(hourEvent)
 
